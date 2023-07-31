@@ -1,0 +1,44 @@
+#cloud-config
+autoinstall:
+  refresh-installer:
+    update: no
+  apt:
+    disable_components: []
+    geoip: true
+    preserve_sources_list: false
+    primary:
+    - arches:
+      - amd64
+      - i386
+      uri: http://za.archive.ubuntu.com/ubuntu
+    - arches:
+      - default
+      uri: http://ports.ubuntu.com/ubuntu-ports
+  drivers:
+    install: false
+  identity:
+    hostname: slobwashere
+    password: "$6$VS9sAsgv8TreWkmK$po20JrUZ0e3CDeNiY4OYZJZdbwZFvNhbawYDARUvr0Ma3ppP6WQg3bVW0UzRzCaNnv5UiFXihISapSxdyKfeF/"
+    username: vagrant
+  kernel:
+    package: linux-generic
+  keyboard:
+    layout: us
+    toggle: null
+    variant: ''
+  locale: en_ZA.UTF-8
+  #network:
+  #  ethernets:
+  #    enp1s0:
+  #      dhcp4: true
+  #  version: 2
+  proxy: http://192.168.122.2:3128/
+  source:
+    id: ubuntu-server
+    search_drivers: false
+  ssh:
+    allow-pw: true
+    authorized-keys: []
+    install-server: true
+  updates: security
+  version: 1

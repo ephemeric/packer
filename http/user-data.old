@@ -1,0 +1,24 @@
+#cloud-config
+autoinstall:
+  version: 1
+  refresh-installer:
+    update: no
+  locale: en_ZA.UTF-8
+  keyboard:
+    layout: us
+  apt_update: true
+  apt:
+    http_proxy: http://192.168.122.2:3128/
+    sources_list: |
+      deb http://za.archive.ubuntu.com/ubuntu/ jammy main restricted
+      deb http://za.archive.ubuntu.com/ubuntu/ jammy-updates main restricted
+      deb http://za.archive.ubuntu.com/ubuntu/ jammy universe
+      deb http://za.archive.ubuntu.com/ubuntu/ jammy-updates universe
+      deb http://za.archive.ubuntu.com/ubuntu/ jammy multiverse
+      deb http://za.archive.ubuntu.com/ubuntu/ jammy-updates multiverse
+      deb http://za.archive.ubuntu.com/ubuntu/ jammy-security universe
+      deb http://za.archive.ubuntu.com/ubuntu/ jammy-security multiverse
+  identity:
+    hostname: box.hotrod.local
+    password: "$6$VS9sAsgv8TreWkmK$po20JrUZ0e3CDeNiY4OYZJZdbwZFvNhbawYDARUvr0Ma3ppP6WQg3bVW0UzRzCaNnv5UiFXihISapSxdyKfeF/"
+    username: vagrant
